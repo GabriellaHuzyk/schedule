@@ -16,7 +16,7 @@ class ContactController{
             return res.json(contact);
         }
         catch(error){
-            return res.status(401).json({message: "Error! Contact don't be created."}, err);
+            return res.json({message: "Error! Contact don't be created."}, err);
         }                 
     }
 
@@ -63,7 +63,7 @@ class ContactController{
         try{
             return res.json({message: "Contact deleted successfully"});
         }
-        catch(err){
+        catch(error){
             return res.json({message: "Error! Contact not found"}, err);
         }
     }
