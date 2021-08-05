@@ -16,7 +16,7 @@ class ContactController{
             return res.json(contact);
         }
         catch(error){
-            return res.status(401).json({message: "Contact deleted successfully"});
+            return res.status(401).json({message: "Error! Contact don't be created."}, err);
         }                 
     }
 
