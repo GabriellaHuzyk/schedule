@@ -49,7 +49,7 @@ class ContactController{
         const contact = await this.service.updateContact(req, res);
 
         try{
-            return res.json("Contact updated succefully!");
+            return res.json("Contact updated successfully!");
         }
         catch(error){
             return res.json({message: "Error! Contact can't be updated."}, err);
@@ -67,8 +67,6 @@ class ContactController{
             return res.json({message: "Error! Contact not found"}, err);
         }
     }
-}
-
-    
+}    
 
 module.exports = ContactController;
