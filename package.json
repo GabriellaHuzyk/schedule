@@ -15,5 +15,8 @@
     "sequelize": "^6.6.5",
     "sqlite": "^4.0.23",
     "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
   }
 }
