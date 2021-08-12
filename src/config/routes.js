@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const ContactController = require("../app/controllers/contact_controller");
 
-
 const contactController = new ContactController();
 
 

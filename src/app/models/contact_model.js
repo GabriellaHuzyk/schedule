@@ -1,10 +1,5 @@
-//Responsável pelo modelo de schema do bd.
-//Estrutura de como o objeto vai ser salvo no bd.
 const { Sequelize } = require("sequelize");
-
-// não importa módulos usando o caminho completo
-// sempre importa usando caminho relativo
-const configSequelize = require("/home/gabriella/Documentos/AplicacoesNodejs/schedule_nodejs/src/config/sequelize.js");
+const configSequelize = require("../../config/sequelize");
 
 const sequelize = new Sequelize(configSequelize);
 
