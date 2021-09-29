@@ -7,16 +7,19 @@ class ContactController {
     this.service = new ContactService();
   }
 
-  async createContact(req, res) {    
-
+  async createContact(req, res) {
     try {
       const { firstName, lastName, email, phone } = req.body;
       const contact = await this.service.createContact({
-      firstName, lastName, email, phone });
+        firstName,
+        lastName,
+        email,
+        phone,
+      });
 
-      return res.json(contact);
-    } catch (err) {
-      return res.json({ message: "Error! Contact don't be created." }, err);
+      return res.json({ message: "Created contact successfully!" });
+    } catch (error) {
+      return res.json({ error: error.message });
     }
   }
 
@@ -31,25 +34,30 @@ class ContactController {
   }
 
   async foundContact(req, res) {
-   
     try {
       const { firstName } = req.query;
-      const contact = await this.service.foundContact({firstName});
+      const contact = await this.service.foundContact({ firstName });
 
       return res.json(contact);
     } catch (err) {
-      return res.json({ message: "Contact not found" }, err);
+      return res.json({ message: "Contact not found" });
     }
   }
 
-  async updateContact(req, res) {    
-
+  async updateContact(req, res) {
     try {
       const { firstName, lastName, email, phone } = req.body;
       const { id } = req.params;
 
-      const contact = await this.service.updateContact({
-      firstName, lastName, email, phone }, { id });
+      const contact = await this.service.updateContact(
+        {
+          firstName,
+          lastName,
+          email,
+          phone,
+        },
+        { id }
+      );
 
       return res.json("Contact updated successfully!");
     } catch (err) {
@@ -57,8 +65,7 @@ class ContactController {
     }
   }
 
-  async deleteContact(req, res) {   
-
+  async deleteContact(req, res) {
     try {
       const { id } = req.params;
       const contact = await this.service.deleteContact({ id });
@@ -68,7 +75,16 @@ class ContactController {
       return res.json({ message: "Error! Contact not found" }, err);
     }
   }
+
+  async deleteAllContacts(req, res) {
+    try {
+      const contact = await this.service.deleteAllContacts();
+
+      return res.json({ message: "All contacts successfully deleted!" });
+    } catch (error) {
+      return error;
+    }
+  }
 }
 
 module.exports = ContactController;
-
